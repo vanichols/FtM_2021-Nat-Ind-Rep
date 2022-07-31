@@ -7,7 +7,7 @@ library(pacman)
 
 #--this loads libraries you have, 
 #---downloads and loads ones you don't
-p_load(shiny, tidyverse, 
+p_load(shiny, tidyverse, scales,
        shinyLP, rlang, cowplot, 
        ggrepel, xtable,
        shinythemes, tidytext,

@@ -37,7 +37,7 @@ server <- function(input, output, session) {
   
   # Latest release date
   output$update_date <- renderText({
-    "August 26, 2021"
+    "July, 2022"
   })
   
   ##### Crop observers #####
@@ -759,6 +759,7 @@ server <- function(input, output, session) {
         geom_smooth(method = "loess", se = F, span = 0.75, formula = y ~ x, color = "black") +
         facet_wrap(~ attribute, scales = "free", ncol = 3) +
         ggthemes::theme_base() +
+        scale_y_continuous(labels = label_comma()) +
         theme(
           text = element_text(color = "black", face = "bold"),
           strip.text = element_text(color = "black", face = "bold"),
@@ -784,6 +785,7 @@ server <- function(input, output, session) {
         geom_point() +
         geom_smooth(method = "loess", se = F, span = 0.75, formula = y ~ x, color = "black") +
         facet_wrap(~ attribute, scales = "free", ncol = 3) +
+        scale_y_continuous(labels = label_comma()) +
         ggthemes::theme_base() +
         theme(
           text = element_text(color = "black", face = "bold"),
@@ -811,6 +813,7 @@ server <- function(input, output, session) {
         geom_point() +
         geom_smooth(method = "loess", se = F, span = 0.75, formula = y ~ x, color = "black") +
         facet_wrap(~ attribute, scales = "free", ncol = 3) +
+        scale_y_continuous(labels = label_comma()) +
         ggthemes::theme_base() +
         theme(
           text = element_text(color = "black", face = "bold"),
@@ -873,6 +876,7 @@ server <- function(input, output, session) {
       geom_point() +
       geom_smooth(method = "loess", se = F, span = 0.75, formula = y ~ x, color = "black") +
       facet_wrap(~ attribute, scales = "free", ncol = 3) +
+      scale_y_continuous(labels = label_comma()) +
       ggthemes::theme_base() +
       theme(
         text = element_text(color = "black", face = "bold"),
@@ -940,6 +944,7 @@ server <- function(input, output, session) {
       ggplot(aes(year, water_applied_acre_inches, group = crop)) +
       labs(x = "Year", y = expression(bold(paste("Acre-inches of Water Acre"^-1))), 
            title = paste("Irrigation Water Rate For", input$crops_available_add_info)) +
+      scale_y_continuous(labels = label_comma()) +
       geom_point() +
       geom_line() +
       #geom_smooth(method = "loess", se = F, span = 0.75, formula = y ~ x, color = "black") +
